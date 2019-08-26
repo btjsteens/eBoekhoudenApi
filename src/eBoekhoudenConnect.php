@@ -490,19 +490,19 @@ class eBoekhoudenConnect
 
     }
 
-    /**
-     * @param $rawresponse
-     * @param $sub
-     */
+	/**
+	 * @param $rawresponse
+	 * @param $sub
+	 *
+	 * @throws \SoapFault
+	 */
     private function checkforerror($rawresponse, $sub)
     {
         if (isset($rawresponse->$sub->ErrorMsg->LastErrorCode)) {
             $LastErrorCode = $rawresponse->$sub->ErrorMsg->LastErrorCode;
             $LastErrorDescription = $rawresponse->$sub->ErrorMsg->LastErrorDescription;
             if ($LastErrorCode <> '') {
-                echo '<strong>Er is een fout opgetreden:</strong><br>';
-                echo $LastErrorCode . ': ' . $LastErrorDescription;
-                exit();
+	            throw new \SoapFault($LastErrorCode, $LastErrorDescription);
             }
         }
     }
