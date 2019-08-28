@@ -12,7 +12,7 @@ class Relation
     /**
      * @var
      */
-    protected $id;
+    protected $id = 0;
     /**
      * @var
      */
@@ -164,15 +164,15 @@ class Relation
     /**
      * @var
      */
-    protected $ledgerAccount_id;
+    protected $ledgerAccount_id = 0;
     /**
      * @var
      */
-    protected $noEmail;
+    protected $noEmail = 0;
     /**
      * @var
      */
-    protected $newsletterGroupCount;
+    protected $newsletterGroupCount = 0;
 
     /**
      * @param mixed $id
@@ -756,12 +756,8 @@ class Relation
         $this->checkCompanyName();
         $this->checkRelationCode();
 
-        if($this->ledgerAccount_id == '' || $this->ledgerAccount_id == null
-            || $this->noEmail == '' || $this->noEmail ==  null
-            || $this->newsletterGroupCount == '' || $this->newsletterGroupCount == null
-            || $this->id == '' || $this->id == null
-            || $this->creationDate == '' || $this->creationDate == null) {
-             throw new \Exception('ID, CreationDate, LedgerAccountId, NoEmail and NewLetterGroupCount are mandatory fields');
+        if($this->relationCode == '' || $this->companyName == '') {
+            throw new \Exception('RelationCode and CompanyName are mandatory fields.');
         }
 
         return [
