@@ -288,6 +288,7 @@ class Mutation
             'HOOG_VERK',
             'HOOG_VERK_21',
             'LAAG_VERK',
+            'LAAG_VERK_9',
             'VERL_VERK',
             'BU_EU_VERK',
             'BI_EU_VERK',
@@ -297,7 +298,7 @@ class Mutation
             'BU_EU_INK',
             'BI_EU_INK',
             'GEEN',
-            ''
+            '',
         ];
 
         if(!in_array($vatCode, $vatCodes)) {
