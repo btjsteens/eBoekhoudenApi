@@ -213,7 +213,7 @@ class Mutation
             throw new \Exception('CounterACCOUNT may not exceed the length of 10 characters');
         }
 
-        if($amount == '' || $amount == null || $vatPercentage == '' || $vatPercentage == null || $costCenterId == '' || $costCenterId == null) {
+        if($amount == '' || $amount === null || $vatPercentage == '' || $vatPercentage === null || $costCenterId == '' || $costCenterId === null) {
             throw new \Exception('Amount, vatPercentage and costCenterId are mandatory fields');
         }
 
@@ -313,7 +313,7 @@ class Mutation
      */
     public function getMutationArray()
     {
-        if($this->kind == '' || $this->kind == null || $this->date == '' || $this->date ==  null) {
+        if($this->kind == '' || $this->kind === null || $this->date == '' || $this->date === null) {
             throw new \Exception('Kind and date are mandatory fields');
         }
 

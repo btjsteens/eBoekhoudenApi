@@ -72,9 +72,9 @@ class LedgerAccount
      */
     public function getLedgerAccountArray()
     {
-        if($this->code == '' || $this->code == null
-            || $this->description == '' || $this->description ==  null
-            || $this->category == '' || $this->category ==  null) {
+        if($this->code == '' || $this->code === null
+            || $this->description == '' || $this->description === null
+            || $this->category == '' || $this->category === null) {
             throw new \Exception('Code, Description and Category are mandatory fields');
         }
 
