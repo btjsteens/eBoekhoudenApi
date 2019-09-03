@@ -200,20 +200,20 @@ class Mutation
     }
 
     /**
-     * @param $amount
-     * @param $vatPercentage
-     * @param $vatCode
-     * @param $counterAccount
-     * @param $costCenterId
+     * @param float $amount The amount without vat
+     * @param int $vatPercentage
+     * @param string $vatCode
+     * @param string $counterAccount
+     * @param int $costCenterId
      * @throws \Exception
      */
-    public function addMuationLine($amount, $vatPercentage, $vatCode, $counterAccount, $costCenterId)
+    public function addMutationLine(float $amount, int $vatPercentage, string $vatCode, string $counterAccount, int $costCenterId)
     {
         if(strlen($counterAccount) > 10) {
             throw new \Exception('CounterACCOUNT may not exceed the length of 10 characters');
         }
 
-        if($amount == '' || $amount === null || $vatPercentage == '' || $vatPercentage === null || $costCenterId == '' || $costCenterId === null) {
+        if($amount === '' || $amount === null || $vatPercentage === '' || $vatPercentage === null || $costCenterId === '' || $costCenterId === null) {
             throw new \Exception('Amount, vatPercentage and costCenterId are mandatory fields');
         }
 

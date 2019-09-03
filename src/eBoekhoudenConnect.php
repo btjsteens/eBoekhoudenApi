@@ -37,12 +37,13 @@ class eBoekhoudenConnect
      * @param $username
      * @param $securityCode1
      * @param $securityCode2
+     * @param bool $debug
      * @throws \Exception
      */
-    public function __construct($username, $securityCode1, $securityCode2)
+    public function __construct($username, $securityCode1, $securityCode2, $debug = false)
     {
         try {
-            $this->soapClient = new \SoapClient("https://soap.e-boekhouden.nl/soap.asmx?WSDL");
+            $this->soapClient = new \SoapClient("https://soap.e-boekhouden.nl/soap.asmx?WSDL", $debug ? ['trace' => true] : []);
 
             $params = [
                 "Username" => $username,
@@ -117,7 +118,7 @@ class eBoekhoudenConnect
 
             $response = $this->soapClient->__soapCall("AddMutatie", [$params]);
 
-            $this->checkforerror($response, "AddMutatieResponse");
+            $this->checkforerror($response, "AddMutatieResult");
             return $response->AddMutatieResult;
         } catch(\SoapFault $soapFault) {
             throw new \Exception('<strong>Soap Exception:</strong> ' . $soapFault);
@@ -294,7 +295,7 @@ class eBoekhoudenConnect
      * @param $invoiceNr
      * @return mixed
      */
-    public function getMutationsByMutationsByInvoiceNumber($invoiceNr)
+    public function getMutationsByInvoiceNumber($invoiceNr)
     {
         $invoiceNr = new InvoiceNumber($invoiceNr);
 
