@@ -80,3 +80,9 @@ Please not that you have to use the Mutation functions when synchronising orders
 | $invoiceNumber | STRING 50 | N |
 | $relationCode | STRING 15 | N |
 
+### Debug
+Add this to get more debug information:
+```
+var_dump($this->soapClient->__getLastRequestHeaders()); // the headers of your last request
+var_dump($this->soapClient->__getLastRequest()); // your last request
+```

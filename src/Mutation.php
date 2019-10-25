@@ -218,10 +218,10 @@ class Mutation
         }
 
         array_push($this->mutationLines, [
-            'BedragInvoer' => $amount,
-            'BedragExclBTW' => $this->calculateAmountExVat($amount, $vatPercentage),
-            'BedragBTW' => $this->calculateAmountVat($amount, $vatPercentage),
-            'BedragInclBTW' => $this->calculateAmountInVat($amount, $vatPercentage),
+            'BedragInvoer' =>  number_format($amount, 2, '.', ''),
+            'BedragExclBTW' => number_format($this->calculateAmountExVat($amount, $vatPercentage), 2, '.', ''),
+            'BedragBTW' => number_format($this->calculateAmountVat($amount, $vatPercentage), 2, '.', ''),
+            'BedragInclBTW' => number_format($this->calculateAmountInVat($amount, $vatPercentage), 2, '.', ''),
             'BTWCode' => $this->setVATCode($vatCode),
             'BTWPercentage' => $vatPercentage,
             'TegenrekeningCode' => $counterAccount,
