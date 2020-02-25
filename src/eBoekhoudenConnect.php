@@ -105,24 +105,22 @@ class eBoekhoudenConnect
     }
 
     /**
-     *
+     * @param Mutation $mutation
+     * @return
+     * @throws \SoapFault
      */
     public function addMutation(Mutation $mutation)
     {
-        try {
-            $params = [
-                "SecurityCode2" => $this->securityCode2,
-                "SessionID" => $this->sessionId,
-                "oMut" => $mutation->getMutationArray()
-            ];
+        $params = [
+            "SecurityCode2" => $this->securityCode2,
+            "SessionID" => $this->sessionId,
+            "oMut" => $mutation->getMutationArray()
+        ];
 
-            $response = $this->soapClient->__soapCall("AddMutatie", [$params]);
+        $response = $this->soapClient->__soapCall("AddMutatie", [$params]);
 
-            $this->checkforerror($response, "AddMutatieResult");
-            return $response->AddMutatieResult;
-        } catch(\SoapFault $soapFault) {
-            throw new \Exception('<strong>Soap Exception:</strong> ' . $soapFault);
-        }
+        $this->checkforerror($response, "AddMutatieResult");
+        return $response->AddMutatieResult;
     }
 
     /**
