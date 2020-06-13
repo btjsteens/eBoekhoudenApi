@@ -21,7 +21,10 @@ Here are some usage examples.
 
 #### Find relation
 ```
-$eBoekhouden->getRelationByCode('BAR');
+$relation = $eBoekhouden->getRelationByCode('BAR');
+if (isset($relation->Relaties->cRelatie)) {
+    // Relation exists
+}
 ```   
 
 #### Add new relation
@@ -48,23 +51,13 @@ if (isset($mutation->Mutaties->cMutatieList)) {
 $mutation = new Mutation();
 $mutation->setKind("FactuurVerstuurd"); // FactuurOntvangen, FactuurVerstuurd, FactuurbetalingOntvangen, FactuurbetalingVerstuurd, GeldOntvangen, GeldUitgegeven
 $mutation->setDate(date('Y-m-d'));
-$mutation->setAccount(1000); // Ledger account code
+$mutation->setAccount(1000); // Ledger account code for debtors
 $mutation->setRelationCode("BAR"); // Must match existing Relation
 $mutation->setInvoiceNumber("INV-500"); // Must be unique
 $mutation->setTermOfPayment(30); // In days
-
-$mutation->setMutationLines([
-    [
-        'BedragInvoer' => 100,
-        'BedragExclBTW' => 100,
-        'BedragBTW' => 21,
-        'BedragInclBTW' => 121,
-        'BTWCode' => 'HOOG_VERK_21', // Check documentation chapter 4
-        'BTWPercentage' => 21,
-        'TegenrekeningCode' => 1000,
-    ]
-]);
-
+$mutation->setDescription("FOO");
+$mutation->setInOrExVat("IN");
+$mutation->addMutationLine(10, 21, "HOOG_VERK_21", 8000, 0)); // Price, VAT %, VAT tariff name (see documentation chapter 4), ledger account code for mutation and optional cost center ID.
 $eBoekhouden->addMutation($mutation);
 ```
 

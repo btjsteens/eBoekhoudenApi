@@ -207,7 +207,7 @@ class Mutation
      * @param int $costCenterId
      * @throws \Exception
      */
-    public function addMutationLine(float $amount, int $vatPercentage, string $vatCode, string $counterAccount, int $costCenterId)
+    public function addMutationLine(float $amount, int $vatPercentage, string $vatCode, string $counterAccount, int $costCenterId = 0)
     {
         if(strlen($counterAccount) > 10) {
             throw new \Exception('CounterACCOUNT may not exceed the length of 10 characters');
