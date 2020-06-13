@@ -92,7 +92,7 @@ class Relation
     /**
      * @var
      */
-    protected $bankacocunt;
+    protected $bankaccount;
     /**
      * @var
      */
@@ -431,9 +431,9 @@ class Relation
      * @param mixed $bankacocunt
      * @return Relation
      */
-    public function setBankacocunt($bankacocunt)
+    public function setBankaccount($bankaccount)
     {
-        $this->bankacocunt = $bankacocunt;
+        $this->bankaccount = $bankaccount;
         return $this;
     }
 
@@ -784,7 +784,7 @@ class Relation
             "Email" => $this->email,
             "Site" => $this->website,
             "Notitie" => $this->note,
-            "Bankrekening" => $this->bankacocunt,
+            "Bankrekening" => $this->bankaccount,
             "Girorekening" => $this->giroaccount,
             "BTWNummer" => $this->vatregistrationnumber,
             "Aanhef" => $this->preamble,
