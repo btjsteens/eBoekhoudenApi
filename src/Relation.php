@@ -1,10 +1,10 @@
 <?php
 
-namespace bobkosse\eBoekhouden;
+namespace btjsteens\eBoekhouden;
 
 /**
  * Class Relation
- * @package bobkosse\eBoekhouden
+ * @package btjsteens\eBoekhouden
  * @todo Use ValueObject where possible
  */
 class Relation
@@ -190,9 +190,6 @@ class Relation
      */
     public function setCreationDate($creationDate)
     {
-        if($creationDate === null || $creationDate === '') {
-            $this->creationDate = date("Y-m-d");
-        }
         $this->creationDate = $creationDate;
         return $this;
     }
@@ -753,8 +750,14 @@ class Relation
      */
     public function getEboekhoudenArray()
     {
+        // Add mandatory fields that can be auto-assigned.
+        if ($this->creationDate === null || $this->creationDate === '') {
+            $this->creationDate = date("Y-m-d");
+        }
+
         $this->checkCompanyName();
         $this->checkRelationCode();
+
 
         if($this->relationCode == '' || $this->companyName == '') {
             throw new \Exception('RelationCode and CompanyName are mandatory fields.');

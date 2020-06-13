@@ -1,10 +1,10 @@
 <?php
 
-namespace bobkosse\eBoekhouden\ValueObjects;
+namespace btjsteens\eBoekhouden\ValueObjects;
 
 /**
  * Class RelationId
- * @package bobkosse\eBoekhouden\ValueObjects
+ * @package btjsteens\eBoekhouden\ValueObjects
  */
 class RelationId {
 

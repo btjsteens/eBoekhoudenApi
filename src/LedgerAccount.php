@@ -1,10 +1,10 @@
 <?php
 
-namespace bobkosse\eBoekhouden;
+namespace btjsteens\eBoekhouden;
 
 /**
  * Class LedgerAccount
- * @package bobkosse\eBoekhouden
+ * @package btjsteens\eBoekhouden
  * @todo Use ValueObject where possible
  */
 class LedgerAccount

@@ -1,10 +1,10 @@
 <?php
 
-namespace bobkosse\eBoekhouden\ValueObjects;
+namespace btjsteens\eBoekhouden\ValueObjects;
 
 /**
  * Class MutationId
- * @package bobkosse\eBoekhouden\ValueObjects
+ * @package btjsteens\eBoekhouden\ValueObjects
  */
 class MutationId {
 

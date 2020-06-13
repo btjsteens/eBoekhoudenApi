@@ -1,10 +1,10 @@
 <?php
 
-namespace bobkosse\eBoekhouden\ValueObjects;
+namespace btjsteens\eBoekhouden\ValueObjects;
 
 /**
  * Class InvoiceNumber
- * @package bobkosse\eBoekhouden\ValueObjects
+ * @package btjsteens\eBoekhouden\ValueObjects
  */
 class InvoiceNumber {
 

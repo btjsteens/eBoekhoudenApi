@@ -1,19 +1,19 @@
 <?php
-namespace bobkosse\eBoekhouden;
+namespace btjsteens\eBoekhouden;
 
-use bobkosse\eBoekhouden\ValueObjects\AccountLedgerCategory;
-use bobkosse\eBoekhouden\ValueObjects\AccountLedgerCode;
-use bobkosse\eBoekhouden\ValueObjects\AccountLedgerId;
-use bobkosse\eBoekhouden\ValueObjects\MutationId;
-use bobkosse\eBoekhouden\ValueObjects\Date;
-use bobkosse\eBoekhouden\ValueObjects\InvoiceNumber;
-use bobkosse\eBoekhouden\ValueObjects\RelationCode;
-use bobkosse\eBoekhouden\ValueObjects\RelationId;
-use bobkosse\eBoekhouden\ValueObjects\RelationSearch;
+use btjsteens\eBoekhouden\ValueObjects\AccountLedgerCategory;
+use btjsteens\eBoekhouden\ValueObjects\AccountLedgerCode;
+use btjsteens\eBoekhouden\ValueObjects\AccountLedgerId;
+use btjsteens\eBoekhouden\ValueObjects\MutationId;
+use btjsteens\eBoekhouden\ValueObjects\Date;
+use btjsteens\eBoekhouden\ValueObjects\InvoiceNumber;
+use btjsteens\eBoekhouden\ValueObjects\RelationCode;
+use btjsteens\eBoekhouden\ValueObjects\RelationId;
+use btjsteens\eBoekhouden\ValueObjects\RelationSearch;
 
 /**
  * Class eBoekhoudenConnect
- * @package bobkosse\eBoekhouden
+ * @package btjsteens\eBoekhouden
  */
 class eBoekhoudenConnect
 {
@@ -137,6 +137,8 @@ class eBoekhoudenConnect
                 "oRel" => $relation->getEboekhoudenArray()
             ];
 
+            //var_dump($params);
+            //die();
             $response = $this->soapClient->__soapCall("AddRelatie", [$params]);
 
             $this->checkforerror($response, "AddRelatieResult");
