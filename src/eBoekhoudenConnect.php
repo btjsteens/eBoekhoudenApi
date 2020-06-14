@@ -484,16 +484,16 @@ class eBoekhoudenConnect
     /**
      *
      */
-    public function updateRelation($relationCode, $relation)
+    public function updateRelation($relation)
     {        
-        $relations = $this->getRelationByCode($relationCode);
-        if (!isset($relations->Relaties->cRelatie)) {
-            throw new \Exception('Relation does not exist.');
-        }
-
         try {
             $newRel = $relation->getEboekhoudenArray();
+            $relations = $this->getRelationByCode($newRel['Code']);
+            if (!isset($relations->Relaties->cRelatie)) {
+                throw new \Exception('Relation does not exist.');
+            }
             $currentRel = (array) $relations->Relaties->cRelatie;
+            
             // Go through the new relation values and add everything to the current relation array which has been filled in.
             // Preserve all other fields.
             foreach ($newRel as $newRelKey => $newRelVal) {
