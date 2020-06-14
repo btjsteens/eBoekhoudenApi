@@ -38,17 +38,18 @@ if (isset($relation->Relaties->cRelatie)) {
 #### Add new relation
 ```
 $relation = new Relation();
-$relation->setRelationCode("BAR");
+$relation->setRelationCode("BAR"); // Relation code must not exist
 $relation->setCompanyName("Foo Company");
 $eBoekhouden->addRelation($relation);
 ```   
 #### Update a relation
 ```
 $relation = new Relation();
+$relation->setRelationCode("BAR"); // Relation code must exist
 $relation->setCompanyName("Acme Company");
-$eBoekhouden->updateRelation('BAR', $relation); // BAR is an existing relation code.
+$eBoekhouden->updateRelation($relation);
 ```
-### Other Relation methods
+#### Other relation methods
 See Relation.php.
 
 
@@ -76,6 +77,8 @@ $mutation->setInOrExVat("IN");
 $mutation->addMutationLine(10, 21, "HOOG_VERK_21", 8000, 0)); // Price, VAT %, VAT tariff name (see documentation chapter 4), ledger account code for mutation and optional cost center ID.
 $eBoekhouden->addMutation($mutation);
 ```
+#### Other mutation methods
+See Mutation.php.
 
 ### Invoices
 Please not that you have to use the Mutation functions when synchronising orders/invoices from your own system to e-Boekhouden.nl, not Invoices.
