@@ -290,11 +290,17 @@ class Mutation
             'LAAG_VERK',
             'LAAG_VERK_9',
             'VERL_VERK',
+            'AFW',
             'BU_EU_VERK',
             'BI_EU_VERK',
+            'BI_EU_VERK_D',
+            'AFST_VERK',
             'LAAG_INK',
+            'LAAG_INK_9',
             'HOOG_INK',
             'HOOG_INK_21',
+            'VERL_INK',
+            'AFW_VERK',
             'BU_EU_INK',
             'BI_EU_INK',
             'GEEN',
@@ -331,5 +337,4 @@ class Mutation
             'MutatieRegels' => $this->mutationLines
         ];
     }
-
 }
