@@ -1,6 +1,7 @@
 {
     "name": "btjsteens/eboekhouden",
     "description": "PHP Wrapper for eBoekhouden SOAP server. Fork of bobkosse/eBoekhouden with some bugfixes and extra features.",
+    "license": "MIT",
     "type": "library",
     "minimum-stability": "stable",
     "require": {
