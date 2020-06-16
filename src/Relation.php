@@ -510,14 +510,20 @@ class Relation
      */
     public function setCompanyPerson($companyPerson)
     {
-        $acceptedValues = ['P', 'C'];
+        // In old versions of this library, company was specified as 'C', but according to the API, it must be 'B'.
+        // 'C' was accepted by the API, but not processed.
+        // Auto-correct the specified character to prevent exceptions.
+        if ($companyPerson === 'C') { 
+            $companyPerson = 'B'; 
+        }
+        $acceptedValues = ['P', 'B'];
 
         if(in_array($companyPerson, $acceptedValues)) {
             $this->companyPerson = $companyPerson;
             return $this;
         }
 
-        throw new \Exception('CompanyPerson may only have the values P (for Person) or C (for Company)');
+        throw new \Exception('CompanyPerson may only have the values P (for Person) or B (for Company)');
     }
 
     /**
